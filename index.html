@@ -54,11 +54,11 @@
       </div>
     </div>
 
-    <form>
+    <form id="formContato">
 
-      <input type="text" placeholder="Nome" required>
-      <input type="text" placeholder="Telefone" required>
-      <input type="email" placeholder="Email" required>
+      <input type="text" name="nome" placeholder="Nome" required>
+      <input type="text" name="telefone" placeholder="Telefone" required>
+      <input type="email" name="email" placeholder="Email" required>
       <button type="submit">Enviar</button>
 
     </form>
@@ -75,7 +75,7 @@
     </div>
   </div>
 
-  <script src="script.js">
+  <script>
 
   document.getElementById("formContato").addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -99,6 +99,8 @@
   alert(retorno.message);
 });
 </script>
+
+<script src="script.js"></script>
 
 </body>
 </html>
