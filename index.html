@@ -54,9 +54,8 @@
       </div>
     </div>
 
-    <form action="https://getform.io/f/prj_cT0EexiS2JmpSCMfYsKytC5VVJfu" method="POST">
+    <form>
 
-      
       <input type="text" placeholder="Nome" required>
       <input type="tel" placeholder="Telefone" required>
       <input type="email" placeholder="Email" required>
@@ -76,6 +75,32 @@
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="script.js">
+
+  document.getElementById("formContato").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const form = e.target;
+
+  const dados = {
+    nome: form.nome.value,
+    telefone: form.telefone.value,
+    email: form.email.value
+  };
+
+  const resposta = await fetch("/api/contato", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(dados)
+  });
+
+  const retorno = await resposta.json();
+
+  alert(retorno.message);
+});
+</script>
+
+
+  </script>
 </body>
 </html>
